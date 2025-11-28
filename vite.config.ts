@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './', // GitHub Pages 배포를 위해 상대 경로 사용
+  base: '/ballop-pms/', // GitHub Pages 레포지토리 이름과 일치시킴
   build: {
     outDir: 'dist',
     assetsDir: 'assets',

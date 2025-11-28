@@ -2,6 +2,7 @@
   "name": "projectflow-pms",
   "version": "1.0.0",
   "type": "module",
+  "homepage": "https://brody1987.github.io/ballop-pms/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
