@@ -174,13 +174,16 @@ class FirebaseService {
      const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
      const firebaseUser = userCredential.user;
 
+     // Special case: If email is admin@pms.com, make them admin
+     const role = email === 'admin@pms.com' ? 'admin' : 'user';
+
      // Create User Profile in Firestore
      const newUser: User = {
         id: firebaseUser.uid,
         email: email,
         name: name,
-        role: 'user', // Default role
-        permissions: { read: true, write: true }, // Default permissions
+        role: role as 'admin' | 'user',
+        permissions: role === 'admin' ? { read: true, write: true } : { read: true, write: true }, // Default permissions
         avatar: `https://ui-avatars.com/api/?name=${name}`
      };
 
